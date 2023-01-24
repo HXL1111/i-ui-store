@@ -1,11 +1,11 @@
 <template>
   <div class="topNav">
-    <div class="logo" @click="asideToggle">i UI</div>
+    <div class="logo">i UI</div>
     <ul class="menu">
       <li>菜单1</li>
       <li>菜单2</li>
     </ul>
-    <span class="toggleAside"></span>
+    <span @click="asideToggle" class="toggleAside"></span>
   </div>
 </template>
 <script lang="ts">
@@ -19,6 +19,7 @@ export default {
     }
     return { asideToggle }
   },
+  components: {},
 }
 </script>
 <style lang="scss" scoped>
@@ -53,6 +54,7 @@ export default {
     left: 16px;
     top: 50%;
     transform: translateY(-50%);
+    display: none;
   }
   @media (max-width: 500px) {
     > .menu {
@@ -60,6 +62,9 @@ export default {
     }
     > .logo {
       margin: 0 auto;
+    }
+    > .toggleAside {
+      display: block;
     }
   }
 }
