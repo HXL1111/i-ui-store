@@ -4,12 +4,12 @@
 
 <script lang="ts" setup>
 const toggle = () => {
-  emit('input', !props.value)
+  emit('update:value', !props.value)
 }
 const props = defineProps({
   value: Boolean,
 })
-const emit = defineEmits(['input'])
+const emit = defineEmits(['update:value'])
 </script>
 
 <style lang="scss" scoped>
