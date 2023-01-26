@@ -22,7 +22,7 @@ button {
   background: #bfbfbf;
   border-radius: calc($h/2);
   position: relative;
-  span {
+  > span {
     position: absolute;
     top: 2px;
     left: 2px;
@@ -32,23 +32,22 @@ button {
     border-radius: calc($h2/2);
     transition: all 250ms;
   }
-}
-
-button.checked {
-  background: #1890ff;
-  span {
-    left: calc(100% - $h2 - 2px);
+  &.checked {
+    background: #1890ff;
+    > span {
+      left: calc(100% - $h2 - 2px);
+    }
   }
-}
-button:active {
-  > span {
-    width: calc($h2 + 4px);
+  :active {
+    > span {
+      width: calc($h2 + 4px);
+    }
   }
-}
-button.checked:active {
-  > span {
-    width: calc($h2 + 4px);
-    margin-left: -4px;
+  &.checked:active {
+    > span {
+      width: calc($h2 + 4px);
+      margin-left: -4px;
+    }
   }
 }
 </style>

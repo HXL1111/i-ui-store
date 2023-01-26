@@ -1,4 +1,4 @@
-<script setup>
+<script lang="ts" setup>
 import { provide, ref } from 'vue'
 import { router } from './router'
 const width = document.documentElement.clientWidth
