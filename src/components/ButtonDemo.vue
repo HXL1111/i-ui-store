@@ -1,9 +1,11 @@
 <template>
-  <div>Button 页面</div>
+  <div>Button 示例</div>
+  <h1>示例1</h1>
+  <Button> 你好 </Button>
 </template>
 
-<script>
-export default {}
+<script lang="ts" setup>
+import Button from '../lib/Button.vue'
 </script>
 
 <style></style>
