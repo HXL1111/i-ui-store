@@ -1,5 +1,5 @@
 <template>
-  <button class="i-switch" @click="toggle" :class="{ checked: value }"><span></span></button>
+  <button class="i-switch" @click="toggle" :class="{ 'i-checked': value }"><span></span></button>
 </template>
 
 <script lang="ts" setup>
@@ -32,7 +32,7 @@ $h2: $h - 4px;
     border-radius: calc($h2/2);
     transition: all 250ms;
   }
-  &.checked {
+  &.i-checked {
     background: #1890ff;
     > span {
       left: calc(100% - $h2 - 2px);
@@ -43,7 +43,7 @@ $h2: $h - 4px;
       width: calc($h2 + 4px);
     }
   }
-  &.checked:active {
+  &.i-checked:active {
     > span {
       width: calc($h2 + 4px);
       margin-left: -4px;
