@@ -1,5 +1,5 @@
 <template>
-  <button @click="toggle" :class="{ checked: value }"><span></span></button>
+  <button class="i-switch" @click="toggle" :class="{ checked: value }"><span></span></button>
 </template>
 
 <script lang="ts" setup>
@@ -12,10 +12,10 @@ const props = defineProps({
 const emit = defineEmits(['update:value'])
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 $h: 22px;
 $h2: $h - 4px;
-button {
+.i-switch {
   height: $h;
   width: $h * 2;
   border: none;
