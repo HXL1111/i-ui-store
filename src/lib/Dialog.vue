@@ -2,15 +2,19 @@
   <template v-if="visible">
     <div class="i-dialog-overlay" @click="onClickOverlay"></div>
     <div class="i-dialog-wrapper">
-      <header>标题 <span class="i-dialog-close" @click="close"></span></header>
-      <main>
-        <p>第一行字</p>
-        <p>第二行字</p>
-      </main>
-      <footer>
-        <Button level="main" @click="ok">OK</Button>
-        <Button @click="cancel">Cancel</Button>
-      </footer>
+      <div class="i-dialog">
+        <header>
+          <slot name="title" />
+          <span class="i-dialog-close" @click="close"></span>
+        </header>
+        <main>
+          <slot name="content" />
+        </main>
+        <footer>
+          <Button level="main" @click="ok">OK</Button>
+          <Button @click="cancel">Cancel</Button>
+        </footer>
+      </div>
     </div>
   </template>
 </template>
