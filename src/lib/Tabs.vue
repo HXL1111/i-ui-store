@@ -30,7 +30,7 @@
 </template>
 
 <script lang="ts">
-import { onMounted, onUpdated, ref } from 'vue'
+import { ref, watchEffect } from 'vue'
 import Tab from './Tab.vue'
 export default {
   props: {
@@ -43,16 +43,16 @@ export default {
     const selectedItem = ref<HTMLDivElement>(null)
     const indicator = ref<HTMLDivElement>(null)
     const container = ref<HTMLDivElement>(null)
-    const x = () => {
-      const { width } = selectedItem.value.getBoundingClientRect()
-      indicator.value.style.width = width + 'px'
-      const { left: left1 } = container.value.getBoundingClientRect()
-      const { left: left2 } = selectedItem.value.getBoundingClientRect()
-      const left = left2 - left1
-      indicator.value.style.left = left + 'px'
-    }
-    onMounted(x)
-    onUpdated(x)
+    watchEffect(() => {
+      if (selectedItem.value && container.value) {
+        const { width } = selectedItem.value.getBoundingClientRect()
+        indicator.value.style.width = width + 'px'
+        const { left: left1 } = container.value.getBoundingClientRect()
+        const { left: left2 } = selectedItem.value.getBoundingClientRect()
+        const left = left2 - left1
+        indicator.value.style.left = left + 'px'
+      }
+    })
     defaultComponent.forEach((tag) => {
       if (tag.type !== Tab) {
         throw new Error('Tabs only supports Tab as a subComponent')
