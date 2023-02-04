@@ -1,4 +1,8 @@
-<template>Tabs</template>
+<template>
+  <div>
+    <slot />
+  </div>
+</template>
 
 <script lang="ts" setup></script>
 
