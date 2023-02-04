@@ -1,16 +1,23 @@
 <template>
   <div class="i-tabs">
-    <div class="i-tabs-nav">
+    <div class="i-tabs-nav" ref="container">
       <div
         class="i-tabs-nav-item"
         :class="{ selected: t === selected }"
         v-for="(t, index) in title"
+        :ref="
+          (el:HTMLDivElement) => {
+            if (el) {
+              navItems[index] = el
+            }
+          }
+        "
         :key="index"
         @click="select(t)"
       >
         {{ t }}
       </div>
-      <div class="i-tabs-nav-indicator"></div>
+      <div class="i-tabs-nav-indicator" ref="indicator"></div>
     </div>
     <div class="i-tabs-content">
       <component
@@ -25,6 +32,7 @@
 </template>
 
 <script lang="ts">
+import { onMounted, onUpdated, ref } from 'vue'
 import Tab from './Tab.vue'
 export default {
   props: {
@@ -34,6 +42,21 @@ export default {
   },
   setup(props, content) {
     const defaultComponent = content.slots.default()
+    const navItems = ref<HTMLDivElement[]>([])
+    const indicator = ref<HTMLDivElement>(null)
+    const container = ref<HTMLDivElement>(null)
+    const x = () => {
+      const divs = navItems.value
+      const result = divs.find((div) => div.classList.contains('selected'))
+      const { width } = result.getBoundingClientRect()
+      indicator.value.style.width = width + 'px'
+      const { left: left1 } = container.value.getBoundingClientRect()
+      const { left: left2 } = result.getBoundingClientRect()
+      const left = left2 - left1
+      indicator.value.style.left = left + 'px'
+    }
+    onMounted(x)
+    onUpdated(x)
     defaultComponent.forEach((tag) => {
       if (tag.type !== Tab) {
         throw new Error('Tabs only supports Tab as a subComponent')
@@ -43,7 +66,7 @@ export default {
     const select = (title) => {
       content.emit('update:selected', title)
     }
-    return { defaultComponent, title, select }
+    return { defaultComponent, title, select, navItems, indicator, container }
   },
 }
 </script>
@@ -76,6 +99,7 @@ $border-color: #d9d9d9;
       left: 0;
       bottom: -1px;
       width: 100px;
+      transition: all 500ms;
     }
   }
   &-content {
