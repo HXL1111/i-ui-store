@@ -18,19 +18,13 @@
       <div class="i-tabs-nav-indicator" ref="indicator"></div>
     </div>
     <div class="i-tabs-content">
-      <component
-        class="i-tabs-content-item"
-        :class="{ selected: c.props.title === selected }"
-        v-for="(c, index) in defaultComponent"
-        :key="index"
-        :is="c"
-      />
+      <component :is="current" :key="current.props.title" />
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { ref, watchEffect } from 'vue'
+import { computed, ref, watchEffect } from 'vue'
 import Tab from './Tab.vue'
 export default {
   props: {
@@ -58,11 +52,14 @@ export default {
         throw new Error('Tabs only supports Tab as a subComponent')
       }
     })
+    const current = computed(() => {
+      return defaultComponent.find((tag) => tag.props.title === props.selected)
+    })
     const title = defaultComponent.map((tag) => tag.props.title)
     const select = (title) => {
       content.emit('update:selected', title)
     }
-    return { defaultComponent, title, select, selectedItem, indicator, container }
+    return { defaultComponent, title, select, selectedItem, indicator, container, current }
   },
 }
 </script>
