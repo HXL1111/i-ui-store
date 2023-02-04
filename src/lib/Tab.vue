@@ -4,6 +4,14 @@
   </div>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts">
+export default {
+  props: {
+    title: {
+      type: String,
+    },
+  },
+}
+</script>
 
 <style lang="scss" scoped></style>

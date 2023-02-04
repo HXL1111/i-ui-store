@@ -1,12 +1,24 @@
 <template>
   <div class="i-tabs">
     <div class="i-tabs-nav">
-      <div :class="{ selected: t === selected }" v-for="(t, index) in title" :key="index" @click="select(t)">
+      <div
+        class="i-tabs-nav-item"
+        :class="{ selected: t === selected }"
+        v-for="(t, index) in title"
+        :key="index"
+        @click="select(t)"
+      >
         {{ t }}
       </div>
     </div>
     <div class="i-tabs-content">
-      <component v-for="(c, index) in defaultComponent" ::key="index" :is="c" />
+      <component
+        class="i-tabs-content-item"
+        :class="{ selected: c.props.title === selected }"
+        v-for="(c, index) in defaultComponent"
+        :key="index"
+        :is="c"
+      />
     </div>
   </div>
 </template>
@@ -58,9 +70,12 @@ $border-color: #d9d9d9;
   }
   &-content {
     padding: 8px 0;
+    &-item {
+      display: none;
+    }
+    > .selected {
+      display: block;
+    }
   }
-}
-.selected {
-  color: $blue;
 }
 </style>
