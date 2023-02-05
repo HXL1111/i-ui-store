@@ -40,7 +40,7 @@ export default {
 $blue: #1693f6;
 $fff: #fff;
 .banner {
-  padding: 32px 0;
+  padding: 48px 0;
   display: flex;
   justify-content: center;
   align-items: center;

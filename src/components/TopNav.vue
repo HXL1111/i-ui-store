@@ -1,11 +1,9 @@
 <template>
   <div class="topNav">
-    <div class="logo"><Icon name="logo" /><span>i UI</span></div>
-    <ul class="menu">
-      <li @click="onSelect('菜单1')" :class="{ selected: selectedMenu === '菜单1' }">菜单1</li>
-      <li @click="onSelect('菜单2')" :class="{ selected: selectedMenu === '菜单2' }">菜单2</li>
-    </ul>
-    <span @click="asideToggle" class="toggleAside"></span>
+    <router-link to="/" class="logo"><Icon name="logo" /><span>i UI</span> </router-link>
+
+    <router-link to="/doc" class="menu">文档</router-link>
+    <span v-if="toggleMenuButtonVisible" @click="asideToggle" class="toggleAside"><Icon name="menu" /></span>
   </div>
 </template>
 <script lang="ts">
@@ -13,22 +11,25 @@ import { inject, ref, Ref } from 'vue'
 import Icon from './Icon.vue'
 
 export default {
+  props: {
+    toggleMenuButtonVisible: {
+      type: Boolean,
+      default: false,
+    },
+  },
   setup() {
     const selectedMenu = ref('菜单1')
     const asideVisible = inject<Ref<boolean>>('asideVisible')!
     const asideToggle = () => {
       asideVisible.value = !asideVisible.value
     }
-    const onSelect = (menu: string) => {
-      selectedMenu.value = menu
-    }
-    return { asideToggle, onSelect, selectedMenu }
+
+    return { asideToggle, selectedMenu }
   },
   components: { Icon },
 }
 </script>
 <style lang="scss" scoped>
-$blue: #25a4ad;
 .topNav {
   min-height: 54px;
   outline: 1px solid #e7e7e7;
@@ -47,6 +48,7 @@ $blue: #25a4ad;
     margin-right: auto;
     display: flex;
     align-items: center;
+    cursor: pointer;
     > .icon {
       height: 32px;
       width: 32px;
@@ -59,34 +61,23 @@ $blue: #25a4ad;
     display: flex;
     white-space: nowrap;
     flex-wrap: nowrap;
-    > li {
-      margin: 0 1em;
-      &.selected {
-        position: relative;
-        &::after {
-          content: '';
-          display: block;
-          position: absolute;
-          bottom: -6px;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          height: 4px;
-          background: $blue;
-        }
-      }
-    }
+    padding-right: 32px;
+    color: #0a8df6;
+    cursor: pointer;
   }
   > .toggleAside {
     display: inline-block;
     width: 24px;
     height: 24px;
-    background: red;
     position: absolute;
     left: 16px;
     top: 50%;
     transform: translateY(-50%);
     display: none;
+    > .icon {
+      width: 24px;
+      height: 24px;
+    }
   }
   @media (max-width: 500px) {
     > .menu {
