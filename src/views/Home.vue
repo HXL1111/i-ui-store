@@ -8,18 +8,27 @@
       <router-link to="/doc" class="start">开始</router-link>
     </p>
     <ul class="features">
-      <li></li>
+      <li class="vue">
+        <Icon name="vue" />
+      </li>
+      <li class="ts">
+        <Icon name="ts" />
+      </li>
+      <li class="easy">
+        <Icon name="easy" />
+      </li>
     </ul>
   </div>
 </template>
 <script lang="ts">
+import Icon from '../components/Icon.vue'
 import TopNav from '../components/TopNav.vue'
 export default {
-  components: { TopNav },
+  components: { TopNav, Icon },
 }
 </script>
 <style lang="scss" scoped>
-$blue: #25a4ad;
+$blue: #1693f6;
 $fff: #fff;
 .banner {
   padding: 32px 0;
@@ -70,6 +79,14 @@ $fff: #fff;
           background: darken($color: $fff, $amount: 2.5);
         }
       }
+    }
+  }
+  .features {
+    > .vue {
+    }
+    > .ts {
+    }
+    > .easy {
     }
   }
 }

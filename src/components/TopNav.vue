@@ -1,6 +1,6 @@
 <template>
   <div class="topNav">
-    <div class="logo">i UI</div>
+    <div class="logo"><Icon name="logo" /><span>i UI</span></div>
     <ul class="menu">
       <li @click="onSelect('菜单1')" :class="{ selected: selectedMenu === '菜单1' }">菜单1</li>
       <li @click="onSelect('菜单2')" :class="{ selected: selectedMenu === '菜单2' }">菜单2</li>
@@ -10,6 +10,7 @@
 </template>
 <script lang="ts">
 import { inject, ref, Ref } from 'vue'
+import Icon from './Icon.vue'
 
 export default {
   setup() {
@@ -23,7 +24,7 @@ export default {
     }
     return { asideToggle, onSelect, selectedMenu }
   },
-  components: {},
+  components: { Icon },
 }
 </script>
 <style lang="scss" scoped>
@@ -44,6 +45,15 @@ $blue: #25a4ad;
   > .logo {
     max-width: 6em;
     margin-right: auto;
+    display: flex;
+    align-items: center;
+    > .icon {
+      height: 32px;
+      width: 32px;
+    }
+    > span {
+      padding-left: 16px;
+    }
   }
   > .menu {
     display: flex;
