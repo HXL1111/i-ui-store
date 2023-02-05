@@ -2,27 +2,32 @@
   <div class="topNav">
     <div class="logo">i UI</div>
     <ul class="menu">
-      <li>菜单1</li>
-      <li>菜单2</li>
+      <li @click="onSelect('菜单1')" :class="{ selected: selectedMenu === '菜单1' }">菜单1</li>
+      <li @click="onSelect('菜单2')" :class="{ selected: selectedMenu === '菜单2' }">菜单2</li>
     </ul>
     <span @click="asideToggle" class="toggleAside"></span>
   </div>
 </template>
 <script lang="ts">
-import { inject, Ref } from 'vue'
+import { inject, ref, Ref } from 'vue'
 
 export default {
   setup() {
+    const selectedMenu = ref('菜单1')
     const asideVisible = inject<Ref<boolean>>('asideVisible')!
     const asideToggle = () => {
       asideVisible.value = !asideVisible.value
     }
-    return { asideToggle }
+    const onSelect = (menu: string) => {
+      selectedMenu.value = menu
+    }
+    return { asideToggle, onSelect, selectedMenu }
   },
   components: {},
 }
 </script>
 <style lang="scss" scoped>
+$blue: #25a4ad;
 .topNav {
   min-height: 54px;
   outline: 1px solid #e7e7e7;
@@ -46,6 +51,20 @@ export default {
     flex-wrap: nowrap;
     > li {
       margin: 0 1em;
+      &.selected {
+        position: relative;
+        &::after {
+          content: '';
+          display: block;
+          position: absolute;
+          bottom: -6px;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          height: 4px;
+          background: $blue;
+        }
+      }
     }
   }
   > .toggleAside {
