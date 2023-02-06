@@ -6,7 +6,7 @@
         :class="{ selected: t === selected }"
         v-for="(t, index) in title"
         :ref="
-          (el:HTMLDivElement) => {
+          (el) => {
             if (t === selected) selectedItem = el
           }
         "
