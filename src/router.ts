@@ -14,6 +14,7 @@ const routes = [
     path: '/doc',
     component: Doc,
     children: [
+      { path: '', redirect: '/doc/intro' },
       { path: "intro", component: Intro },
       { path: "get-started", component: GetStarted },
       { path: "install", component: Install },
