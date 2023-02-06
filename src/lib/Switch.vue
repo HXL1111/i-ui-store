@@ -1,15 +1,20 @@
 <template>
-  <button class="i-switch" @click="toggle" :class="{ 'i-checked': value }"><span></span></button>
+  <button class="i-switch" @click="toggle" :class="{ 'i-checked': value }">
+    <span></span>
+  </button>
 </template>
-
-<script lang="ts" setup>
-const toggle = () => {
-  emit('update:value', !props.value)
+<script lang="ts">
+export default {
+  props: {
+    value: Boolean,
+  },
+  setup(props, context) {
+    const toggle = () => {
+      context.emit('update:value', !props.value)
+    }
+    return { toggle }
+  },
 }
-const props = defineProps({
-  value: Boolean,
-})
-const emit = defineEmits(['update:value'])
 </script>
 
 <style lang="scss">
@@ -20,7 +25,7 @@ $h2: $h - 4px;
   width: $h * 2;
   border: none;
   background: #bfbfbf;
-  border-radius: calc($h/2);
+  border-radius: $h/2;
   position: relative;
   > span {
     position: absolute;
@@ -29,23 +34,26 @@ $h2: $h - 4px;
     height: $h2;
     width: $h2;
     background: white;
-    border-radius: calc($h2/2);
+    border-radius: $h2 / 2;
     transition: all 250ms;
   }
   &.i-checked {
     background: #1890ff;
     > span {
-      left: calc(100% - $h2 - 2px);
+      left: calc(100% - #{$h2} - 2px);
     }
   }
-  :active {
+  &:focus {
+    outline: none;
+  }
+  &:active {
     > span {
-      width: calc($h2 + 4px);
+      width: $h2 + 4px;
     }
   }
   &.i-checked:active {
     > span {
-      width: calc($h2 + 4px);
+      width: $h2 + 4px;
       margin-left: -4px;
     }
   }
