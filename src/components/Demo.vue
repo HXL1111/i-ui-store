@@ -43,6 +43,9 @@ $border-color: #d9d9d9;
 .demo {
   border: 1px solid $border-color;
   margin: 16px 0 32px;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   > h2 {
     font-size: 20px;
     padding: 8px 16px;

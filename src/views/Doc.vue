@@ -48,6 +48,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+$blue: #abd7fa;
 .layout {
   display: flex;
   flex-direction: column;
@@ -77,13 +78,14 @@ export default {
   > main {
     flex-grow: 1;
     padding: 16px;
-    background: white;
+    background: #f7f8fa;
   }
 }
 aside {
-  background: lightblue;
+  background: white;
   width: 150px;
   padding: 16px 0;
+  box-shadow: 2px 0px 9px 1px rgba(0, 0, 0, 0.2);
   > h2 {
     margin-bottom: 4px;
     padding: 0 16px;
@@ -96,7 +98,8 @@ aside {
         text-decoration: none;
       }
       .router-link-active {
-        background: white;
+        background: $blue;
+        border-radius: 8px;
       }
     }
   }
