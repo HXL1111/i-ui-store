@@ -18,10 +18,10 @@
         <h2>组件列表</h2>
         <ol>
           <li>
-            <router-link to="/doc/switch">Switch 组件</router-link>
+            <router-link to="/doc/button">Button 组件</router-link>
           </li>
           <li>
-            <router-link to="/doc/button">Button 组件</router-link>
+            <router-link to="/doc/switch">Switch 组件</router-link>
           </li>
           <li>
             <router-link to="/doc/dialog">Dialog 组件</router-link>
@@ -49,6 +49,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 $blue: #abd7fa;
+$aside-index: 10;
 .layout {
   display: flex;
   flex-direction: column;
@@ -86,6 +87,7 @@ aside {
   width: 150px;
   padding: 16px 0;
   box-shadow: 2px 0px 9px 1px rgba(0, 0, 0, 0.2);
+  z-index: $aside-index;
   > h2 {
     margin-bottom: 4px;
     padding: 0 16px;
