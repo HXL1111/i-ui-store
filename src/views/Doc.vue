@@ -44,7 +44,10 @@ export default {
   setup() {
     const asideVisible = inject<Ref<boolean>>('asideVisible')
     const closeAside = () => {
-      asideVisible.value = false
+      const width = document.documentElement.clientWidth
+      if (width < 500 && asideVisible.value === true) {
+        asideVisible.value = false
+      }
     }
     return { asideVisible, closeAside }
   },
