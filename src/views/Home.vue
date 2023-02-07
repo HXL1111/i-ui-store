@@ -5,7 +5,7 @@
     <h2>一个厉害的 Vue UI 框架</h2>
     <h3>助力设计开发者「更灵活」地搭建出「更美」的产品，让用户「快乐工作」～</h3>
     <p class="actions">
-      <a href="https://github.com" class="github">Github</a>
+      <a href="https://github.com/HXL1111/i-ui-store" class="github">Github</a>
       <router-link to="/doc" class="start">开始</router-link>
     </p>
     <div class="features">
