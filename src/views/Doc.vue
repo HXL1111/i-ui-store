@@ -44,7 +44,7 @@ export default {
   setup() {
     const asideVisible = inject<Ref<boolean>>('asideVisible')
     const closeAside = () => {
-      asideVisible.value = !asideVisible.value
+      asideVisible.value = false
     }
     return { asideVisible, closeAside }
   },
