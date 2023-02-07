@@ -11,8 +11,8 @@
           <slot name="content" />
         </main>
         <footer>
-          <Button level="main" @click="ok">OK</Button>
           <Button @click="cancel">Cancel</Button>
+          <Button level="main" @click="ok">OK</Button>
         </footer>
       </div>
     </div>
