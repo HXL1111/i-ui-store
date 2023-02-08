@@ -8,6 +8,7 @@ import TabsDemo from './components/TabsDemo.vue'
 import Intro from './views/Intro.vue';
 import GetStarted from './views/GetStarted.vue'
 import Install from './views/Install.vue'
+import InputDemo from './components/InputDemo.vue'
 const routes = [
   { path: '/', component: Home },
   {
@@ -21,7 +22,8 @@ const routes = [
       { path: 'switch', component: SwitchDemo },
       { path: 'button', component: ButtonDemo },
       { path: 'dialog', component: DialogDemo },
-      { path: 'tabs', component: TabsDemo }
+      { path: 'tabs', component: TabsDemo },
+      { path: 'input', component: InputDemo },
     ]
   },
 ] as RouteRecordRaw[]
