@@ -25,7 +25,7 @@
 
 <script lang="ts">
 import { computed, ref, watchEffect } from 'vue'
-import Tab from './Tab.vue'
+import Tab from './I-tab.vue'
 export default {
   props: {
     selected: {

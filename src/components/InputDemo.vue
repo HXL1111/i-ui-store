@@ -5,7 +5,7 @@
 
 <script lang="ts">
 import { ref } from 'vue'
-import Input from '../lib/Input.vue'
+import Input from '../lib/I-input.vue'
 
 export default {
   components: {
