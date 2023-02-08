@@ -1,6 +1,6 @@
 <template>
   <div>
-    <input :value="modelValue" @input="onInput" :placeholder="placeholder" />
+    <input :value="modelValue" @input="onInput" :placeholder="placeholder" :disabled="disabled" class="i-input" />
   </div>
 </template>
 
@@ -13,6 +13,9 @@ export default {
     placeholder: {
       type: String,
     },
+    disabled: {
+      type: Boolean,
+    },
   },
   emits: ['update:modelValue'],
   setup(props, content) {
@@ -24,4 +27,18 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss">
+$blue: #40a9ff;
+$grey: #dcdfe6;
+
+.i-input {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid $grey;
+  cursor: pointer;
+  &:focus,
+  &:hover {
+    outline: 1px solid $blue;
+  }
+}
+</style>

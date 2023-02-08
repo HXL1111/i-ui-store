@@ -1,11 +1,15 @@
+<!-- <demo>
+  常规使用
+</demo> -->
 <template>
-  <h1>Input 示例</h1>
-  <Input v-model="input" placeholder="请输入内容" />
+  <div>
+    <Input v-model="input" placeholder="请输入内容" />
+  </div>
 </template>
 
 <script lang="ts">
 import { ref } from 'vue'
-import Input from '../lib/I-input.vue'
+import Input from '../../lib/I-input.vue'
 
 export default {
   components: {
@@ -17,5 +21,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss" scoped></style>

@@ -14,8 +14,8 @@
 </template>
 
 <script lang="ts">
-import Dialog from '../lib/I-dialog.vue'
-import Button from '../lib/I-button.vue'
+import Dialog from '../../lib/I-dialog.vue'
+import Button from '../../lib/I-button.vue'
 import { ref } from 'vue'
 
 export default {

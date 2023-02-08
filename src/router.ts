@@ -1,14 +1,14 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 import Home from './views/Home.vue'
 import Doc from './views/Doc.vue'
-import SwitchDemo from './components/SwitchDemo.vue'
-import ButtonDemo from './components/ButtonDemo.vue'
-import DialogDemo from './components/DialogDemo.vue'
-import TabsDemo from './components/TabsDemo.vue'
 import Intro from './views/Intro.vue';
 import GetStarted from './views/GetStarted.vue'
 import Install from './views/Install.vue'
-import InputDemo from './components/InputDemo.vue'
+import InputDemo from './components/input/InputDemo.vue'
+import SwitchDemo from './components/switch/SwitchDemo.vue'
+import ButtonDemo from './components/button/ButtonDemo.vue';
+import DialogDemo from './components/dialog/DialogDemo.vue'
+import TabsDemo from './components/tabs/TabsDemo.vue'
 const routes = [
   { path: '/', component: Home },
   {

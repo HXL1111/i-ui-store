@@ -47,11 +47,11 @@ export default {
         indicator.value.style.left = left + 'px'
       }
     })
-    defaultComponent.forEach((tag) => {
-      if (tag.type !== Tab) {
-        throw new Error('Tabs only supports Tab as a subComponent')
-      }
-    })
+    // defaultComponent.forEach((tag) => {
+    //   if (tag.type !== Tab) {
+    //     throw new Error('Tabs only supports Tab as a subComponent')
+    //   }
+    // })
     const current = computed(() => {
       return defaultComponent.find((tag) => tag.props.title === props.selected)
     })
