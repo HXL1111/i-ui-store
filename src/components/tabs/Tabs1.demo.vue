@@ -9,7 +9,7 @@
 </template>
 
 <script lang="ts">
-import Tabs from '../../lib/i-tabs.vue'
+import Tabs from '../../lib/I-tabs.vue'
 import Tab from '../../lib/i-tab.vue'
 import { ref } from 'vue'
 export default {

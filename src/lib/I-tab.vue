@@ -11,6 +11,7 @@ export default {
       type: String,
     },
   },
+  name: 'i-tab',
 }
 </script>
 
