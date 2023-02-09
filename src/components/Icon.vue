@@ -1,5 +1,5 @@
 <template>
-  <svg class="icon" aria-hidden="true">
+  <svg class="i-icon" aria-hidden="true">
     <use :xlink:href="`#icon-${name}`"></use>
   </svg>
 </template>
@@ -16,7 +16,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.icon {
+.i-icon {
   width: 1em;
   height: 1em;
   vertical-align: -0.15em;

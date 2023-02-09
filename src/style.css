@@ -19,6 +19,9 @@ h5,
 h6 {
   font-weight: normal;
 }
+:focus {
+  outline: none;
+}
 body {
   font-size: 16px;
   font-family: -apple-system, 'Noto Sans', 'Helvetica Neue', Helvetica, 'Nimbus Sans L', Arial, 'Liberation Sans',

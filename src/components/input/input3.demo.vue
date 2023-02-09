@@ -1,10 +1,5 @@
-<!-- <demo>
-  禁用状态
-</demo> -->
 <template>
-  <div>
-    <Input v-model="input" placeholder="请输入内容" :disabled="true" />
-  </div>
+  <div><Input v-model="input" placeholder="请输入内容" clearable /></div>
 </template>
 
 <script lang="ts">
