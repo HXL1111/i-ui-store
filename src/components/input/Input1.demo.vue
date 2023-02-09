@@ -1,6 +1,6 @@
-<!-- <demo>
+<demo>
   常规使用
-</demo> -->
+</demo>
 <template>
   <div>
     <Input v-model="input" placeholder="请输入内容" />

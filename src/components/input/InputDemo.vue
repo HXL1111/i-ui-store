@@ -4,6 +4,7 @@
   <Input2Demo />
   <Input3Demo />
   <Input4Demo />
+  <Demo :component="Input1Demo" />
 </template>
 
 <script lang="ts">
@@ -15,7 +16,6 @@ import Input4Demo from './input4.demo.vue'
 export default {
   components: {
     Demo,
-    Input1Demo,
     Input2Demo,
     Input3Demo,
     Input4Demo,
