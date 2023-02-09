@@ -15,5 +15,3 @@ export default {
   components: { Button },
 }
 </script>
-
-<style lang="scss" scoped></style>
